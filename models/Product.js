@@ -5,6 +5,9 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
     trim: true,
+    get: (val) => {
+      return encodeURI(`http://specoper99.fikracamp.com/${val}`);
+    },
   },
   title: {
     type: String,

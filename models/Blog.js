@@ -7,7 +7,7 @@ const blogSchema = mongoose.Schema({
     required: true,
     trim: true,
     get: (val) => {
-      return encodeURI(`http://localhost/${val}`);
+      return encodeURI(`http://specoper99.fikracamp.com/${val}`);
     },
   },
   title: {
