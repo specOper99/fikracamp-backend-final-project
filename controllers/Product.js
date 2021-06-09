@@ -70,7 +70,7 @@ module.exports.getById = (req, res, next) => {
 
 module.exports.deleteById = (req, res, next) => {
     let productId = req.params.id;
-    Product.findById({ productId })
+    Product.findById( productId )
         .then(product => {
             if (!product) {
                 return res.status(404).json({ message: "Product not found" })
@@ -106,7 +106,7 @@ module.exports.createProduct = (req, res, next) => {
     const body = req.body;
     const newPath = path.join('public', 'products', body.title + new Date().toISOString() + req.file.originalname.substring(req.file.originalname.lastIndexOf('.')));
     moveImage(req.file.path, newPath)
-    body.imagePath = newPath;
+    body.image = newPath;
 
     Product.create({ ...body })
         .then(product => {

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const productSchema = mongoose.Schema({
-  imagePath: {
+  image: {
     type: String,
     required: true,
     trim: true,
@@ -49,6 +49,10 @@ const productSchema = mongoose.Schema({
     default: Date.now,
   }
 });
+
+
+productSchema.set('toObject', { getters: true });
+productSchema.set('toJSON', { getters: true });
 
 const Product = mongoose.model('Product-Mustafa', productSchema);
 module.exports = Product;

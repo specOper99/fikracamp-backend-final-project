@@ -26,7 +26,7 @@ module.exports.deleteAll = (req, res, next) => {
 
 module.exports.getById = (req, res, next) => {
     let postId = req.params.id;
-    Blog.findById({ postId })
+    Blog.findById(postId)
         .then(post => {
             if (!post) {
                 return res.status(404).json({ message: "post not found" })
